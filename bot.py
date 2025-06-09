@@ -39,8 +39,7 @@ async def translate(update: Update, context: ContextTypes.DEFAULT_TYPE):
         text = update.message.reply_to_message.text
         if text:
             translated = translator.translate(text, dest=lang).text
-            await update.message.reply_text(f"🔁 Translation ({lang}):
-{translated}")
+            await update.message.reply_text(f"🔁 Translation ({lang}):{translated}")
         else:
             await update.message.reply_text("❗ Please reply to a text message.")
     else:
@@ -52,8 +51,7 @@ async def filter_links(update: Update, context: ContextTypes.DEFAULT_TYPE):
         if not any(link in text for link in ALLOWED_LINKS):
             try:
                 await update.message.delete()
-                await context.bot.send_message(chat_id=update.effective_chat.id,
-                                               text="🚫 Only official SushiCoin links are allowed.")
+                await context.bot.send_message(chat_id=update.effective_chat.id, text="🚫 Only official SushiCoin links are allowed.")
             except:
                 pass
 
