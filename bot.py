@@ -21,19 +21,13 @@ async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
 async def new_member(update: Update, context: ContextTypes.DEFAULT_TYPE):
     for member in update.message.new_chat_members:
         welcome = f"👋 Welcome to the official SushiCoin community, {member.mention_html()}!"
-        links = ("🔗 Stay connected:
-"
-                 "• Instagram: https://www.instagram.com/sushicoin_worldchain
-"
-                 "• YouTube: https://youtube.com/@sushicoin_worldchain
-"
-                 "• TikTok: https://www.tiktok.com/@sushicoin_worldchain
-"
-                 "• Facebook: https://www.facebook.com/share/1BrdSxafAz/
-"
-                 "• Threads: https://www.threads.net/@sushicoin_worldchain
-"
-                 "• App: https://worldcoin.org/mini-app?app_id=app_189a4201231883859ea837ca1e41cd85")
+        links = """🔗 Stay connected:
+• Instagram: https://www.instagram.com/sushicoin_worldchain
+• YouTube: https://youtube.com/@sushicoin_worldchain
+• TikTok: https://www.tiktok.com/@sushicoin_worldchain
+• Facebook: https://www.facebook.com/share/1BrdSxafAz/
+• Threads: https://www.threads.net/@sushicoin_worldchain
+• App: https://worldcoin.org/mini-app?app_id=app_189a4201231883859ea837ca1e41cd85"""
         translate_info = "🌍 Need translation? Reply any message with: /translate to Spanish (or any language)."
         await update.message.reply_html(welcome)
         await update.message.reply_text(links)
